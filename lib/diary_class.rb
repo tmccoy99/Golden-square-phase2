@@ -25,6 +25,7 @@ class DiaryEntry
     max_words = wpm * minutes
     words_left = @contents.split[@saved_idx..-1]
     @saved_idx = @saved_idx + max_words
+    @saved_idx = 0 if @saved_idx >= self.count_words
     return words_left.join(" ") if max_words >= words_left.length
     words_left[0...max_words].join(" ")
     
