@@ -4,7 +4,7 @@ class GrammarStats
   end
 
   def check(text)
-    true
+    ("A".."Z").include?(text[0]) && ["!", "?", "."].include?(text[-1])
   end
 
   def percentage_good
