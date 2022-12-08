@@ -21,7 +21,10 @@ class DiaryEntry
   end
 
   def reading_chunk(wpm, minutes)
-    @contents
+    max_reading_words = wpm * minutes
+    contents_words = @contents.split
+    return @contents if max_reading_words >= contents_words.length - 1
+    contents_words[0...max_reading_words].join(" ")
     
   end
 end

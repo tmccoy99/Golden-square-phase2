@@ -30,7 +30,7 @@ RSpec.describe DiaryEntry do
   
   context "reading_chunk is called with wpm*reading_time < contents.length" do
     it "returns first wpm*reading_time words of contents" do
-      expect(entry2.reading_chunk(500, 1)).to eq "hi " * 500
+      expect(entry2.reading_chunk(500, 1)).to eq ("hi " * 500).chop
     end
   end
   
