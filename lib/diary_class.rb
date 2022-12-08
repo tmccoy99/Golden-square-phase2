@@ -23,12 +23,10 @@ class DiaryEntry
   def reading_chunk(wpm, minutes)
     @saved_idx ||= 0
     max_words = wpm * minutes
-    words_left = @contents.split[@saved_idx..-1]
-    @saved_idx = @saved_idx + max_words
-    @saved_idx = 0 if @saved_idx >= self.count_words
-    return words_left.join(" ") if max_words >= words_left.length
-    words_left[0...max_words].join(" ")
-    
+    end_idx = @saved_idx + max_words
+    chunk = @contents.split[@saved_idx...end_idx].join(" ")
+    @saved_idx = end_idx >= self.count_words ? 0 : end_idx
+    chunk
   end
 end
 
