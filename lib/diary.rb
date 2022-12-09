@@ -28,7 +28,14 @@ class Diary
   end
 
   def find_best_entry_for_reading_time(wpm, minutes)
-    fail("Error, no entries in diary")
+    fail("Error, no entries in diary") if @entries.empty?
+    sorted_entries = @entries.sort_by { |entry| entry.count_words }
+    sorted_entries.reverse_each do |entry|
+      return entry if entry.reading_time(wpm) <= wpm * minutes
+    end
+    sorted_entries[0]
+  end
+    
     
     
     
@@ -39,5 +46,4 @@ class Diary
     # Returns an instance of diary entry representing the entry that is closest 
     # to, but not over, the length that the user could read in the minutes they
     # have available given their reading speed.
-  end
 end
