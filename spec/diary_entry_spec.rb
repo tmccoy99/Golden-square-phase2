@@ -1,4 +1,4 @@
-require "diary_class"
+require "diary_entry"
 
 RSpec.describe DiaryEntry do
   context "When provided title and contents" do
