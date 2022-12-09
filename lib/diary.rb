@@ -16,13 +16,20 @@ class Diary
     0
   end
 
-  def reading_time(wpm) # wpm is an integer representing
-                        # the number of words the user can read per minute
+  def reading_time(wpm)
+    0
+    
+    
+    # wpm is an integer representing                   # the number of words the user can read per minute
     # Returns an integer representing an estimate of the reading time in minutes
     # if the user were to read all entries in the diary.
   end
 
   def find_best_entry_for_reading_time(wpm, minutes)
+    fail("Error, no entries in diary")
+    
+    
+    
         # `wpm` is an integer representing the number of words the user can read
         # per minute.
         # `minutes` is an integer representing the number of minutes the user
