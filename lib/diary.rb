@@ -2,18 +2,20 @@ load "diary_entry.rb"
 
 class Diary
   def initialize
+    @entries = []
   end
 
   def add(entry) # entry is an instance of DiaryEntry
-    # Returns nothing
+    @entries << entry
   end
 
   def all
-    []
+    @entries
+    
   end
 
   def count_words
-    0
+    @entries.reduce(0) { |sum, entry| sum + entry.count_words } 
   end
 
   def reading_time(wpm)
