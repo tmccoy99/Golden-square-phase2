@@ -19,7 +19,7 @@ class Diary
   end
 
   def reading_time(wpm)
-    0
+    @entries.reduce(0) { |sum, entry| sum + entry.reading_time(wpm) }
     
     
     # wpm is an integer representing                   # the number of words the user can read per minute
